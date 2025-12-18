@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Todo</title>
+  <style>
+  body {
+    background-color: #f0fff4;
+    font-family: Arial, sans-serif;
+  }
+
+  .container {
+    width: 300px;
+    margin: 100px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+	
+	#addBtn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+  #addBtn:hover {
+    background-color: #45a049;
+  }
+
+  /* Delete button (button inside list item) */
+  li button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+
+  li button:hover {
+    background-color: #c0392b;
+  }
+  li {
+  margin-bottom: 8px;
+}
+body {
+  font-size: 16px;
+}
+
+li {
+  font-size: 15px;
+}
+.empty {
+  list-style: none;
+  color: #999;
+  font-style: italic;
+  text-align: center;
+}
+
+</style>
+
+</head>
+<body>
+
+  
+
+  <div class="container">
+    <h2>My Todo List</h2>
+
+    <input id="taskInput" type="text" placeholder="Enter task" />
+    <button id="addBtn">Add</button>
+
+    <ul id="taskList"></ul>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+
+</html>
