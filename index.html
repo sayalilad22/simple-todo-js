@@ -1,82 +1,169 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
   <title>Simple Todo</title>
+
   <style>
-  body {
-    background-color: #f0fff4;
-    font-family: Arial, sans-serif;
-  }
+    body {
+      background-color: #f0fff4;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+    }
 
-  .container {
-    width: 300px;
-    margin: 100px auto;
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-	
-	#addBtn {
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 4px;
-  cursor: pointer;
-}
-  #addBtn:hover {
-    background-color: #45a049;
-  }
+    /* Container */
+    .container {
+      width: 320px;
+      margin: 100px auto;
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
 
-  /* Delete button (button inside list item) */
-  li button {
-    background-color: #e74c3c;
-    color: white;
-    border: none;
-    padding: 4px 8px;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-left: 10px;
-  }
+    /* Input + Add */
+    #taskInput {
+      width: 70%;
+      padding: 6px;
+      margin-right: 6px;
+    }
 
-  li button:hover {
-    background-color: #c0392b;
-  }
-  li {
-  margin-bottom: 8px;
-}
-body {
-  font-size: 16px;
-}
+    #addBtn {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 7px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
 
-li {
-  font-size: 15px;
-}
-.empty {
-  list-style: none;
-  color: #999;
-  font-style: italic;
-  text-align: center;
-}
+    #addBtn:hover {
+      background-color: #45a049;
+    }
 
-</style>
+    /* Filters */
+    .filters {
+      display: flex;
+      justify-content: space-between;
+      margin: 12px 0;
+    }
 
+    .filters button {
+      flex: 1;
+      margin: 0 2px;
+      padding: 4px;
+      border: 1px solid #ccc;
+      background: white;
+      cursor: pointer;
+      border-radius: 4px;
+      font-size: 13px;
+    }
+
+    .filters button.active {
+      background-color: #4CAF50;
+      color: white;
+      border-color: #4CAF50;
+    }
+
+    /* Task list */
+    ul {
+      padding-left: 0;
+      margin-top: 10px;
+    }
+
+    li {
+      list-style: none;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    li span {
+      flex: 1;
+      word-break: break-word;
+    }
+
+    /* Delete button */
+    li button {
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      padding: 4px 8px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    li button:hover {
+      background-color: #c0392b;
+    }
+
+    /* Completed task */
+    .completed {
+      text-decoration: line-through;
+      color: gray;
+    }
+
+    /* Empty state */
+    .empty {
+      text-align: center;
+      color: #888;
+      font-style: italic;
+      margin-top: 10px;
+    }
+
+    /* Footer */
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 12px;
+      font-size: 14px;
+      color: #666;
+    }
+
+    #clearCompleted {
+      background: transparent;
+      border: none;
+      color: #f44336;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    #clearCompleted:disabled {
+      color: #bbb;
+      cursor: not-allowed;
+    }
+  </style>
 </head>
-<body>
 
-  
+<body>
 
   <div class="container">
     <h2>My Todo List</h2>
 
+    <!-- Input -->
     <input id="taskInput" type="text" placeholder="Enter task" />
     <button id="addBtn">Add</button>
 
+    <!-- Filters -->
+    <div class="filters">
+      <button data-filter="all" class="active">All</button>
+      <button data-filter="active">Active</button>
+      <button data-filter="completed">Completed</button>
+    </div>
+
+    <!-- Task list -->
     <ul id="taskList"></ul>
+
+    <!-- Footer -->
+    <div class="footer">
+      <span id="counter">0 tasks remaining</span>
+      <button id="clearCompleted">Clear completed</button>
+    </div>
   </div>
 
+  <!-- JS -->
   <script src="script.js"></script>
 </body>
-
-
 </html>
